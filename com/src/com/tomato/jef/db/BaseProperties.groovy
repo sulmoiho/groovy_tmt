@@ -8,11 +8,7 @@ class BaseProperties {
 	BaseProperties() {
 		map = [:]
 	}
-	
-	
-	
-	
-	
+
 	/**
 	 * key에 해당하는 속성(파라메터)을 반환한다.
 	 * @param key java.lang.String 키 스트링
