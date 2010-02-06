@@ -1,12 +1,12 @@
 package com.tomato.jef.db;
 
-class BaseProperties extends HashMap {
-	
+class BaseProperties {
+	private map = null;
 	/**
 	 * 생성자
 	 */
 	BaseProperties() {
-		super()
+		map = [:]
 	}
 
 	/**
@@ -16,7 +16,7 @@ class BaseProperties extends HashMap {
 	 */
 	String getProperty(String key) {
 		if(key == null) return null
-		return (String)this.get(key)
+		return (String)map.get(key)
 	}
 	
 	/**
@@ -26,7 +26,7 @@ class BaseProperties extends HashMap {
 	 */
 	Object getObject(String key) {
 		if(key == null) return null
-		return this.get(key)
+		return map.get(key)
 	}
 	
 	/**
@@ -39,7 +39,7 @@ class BaseProperties extends HashMap {
 	boolean put(String key, Object value) {
 		if(value == null) value = ''
 		
-		super.put(key, value)
+		map.put(key, value)
 		return true
 	}
 	
@@ -50,7 +50,7 @@ class BaseProperties extends HashMap {
 	 * @return java.util.List 키목록
 	 */
 	List getPropertiesNames() {
-		return this.keySet().toList()
+		return map.keySet().toList()
 	}
 	
 	/**
@@ -60,16 +60,6 @@ class BaseProperties extends HashMap {
 	 * @return java.util.List 값목록
 	 */
 	List getPropertiesValues() {
-		return this.values().toList()
-	}
-	
-	/**
-	 * added by sulmoiho
-	 * 
-	 * 상속받은 해당 메소드를 어플리케이션 단에서 호출하지 못하도록 막음.
-	 * @exception java.lang.UnsupportedOperationException
-	 */
-	Object put(Object key, Object value) {
-		throw new UnsupportedOperationException('Not supported Method in com.tomato.jef.db.BaseProperties')
+		return map.values().toList()
 	}
 }
