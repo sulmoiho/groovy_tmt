@@ -1,0 +1,34 @@
+package ${dao_package};
+
+import com.tomato.jef.dao.AbstractDAO;
+
+public class ${dao_class}DAO extends AbstractDAO {
+    private final String[][] columns = {
+	<%	columns.each {%> $it, 
+	<%	} %>
+    };
+    
+    protected String getDBMS() {
+        return '${dao_dbms}';
+    }
+    
+    protected String getTableName() {
+        return '${dao_table}';
+    }
+    
+    protected int getColumnCount() {
+        return ${dao_column_cnt};
+    }
+    
+    protected String getColumnName(int i) {
+        return columns[i][0];
+    }
+    
+    protected String getColumnType(int i) {
+        return columns[i][1];
+    }
+    
+    protected String getDefaultValue(int i) {
+        return columns[i][2];
+    }
+}
